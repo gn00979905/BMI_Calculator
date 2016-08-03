@@ -1,0 +1,23 @@
+﻿@model SampleWeb.Models.UserInfoModels
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@using (Html.BeginForm("Index", "Home"))
+{
+    @Html.TextBox("UserName", "", new { @placeholder = "姓名" })
+    @:男: @Html.RadioButton("Sex", "1",true)
+    @:女: @Html.RadioButton("Sex", "0", false)
+    <br/>
+    @Html.TextBox("UserHeight", "", new { @placeholder = "身高(CM)" })
+    @Html.TextBox("UserWeight", "", new { @placeholder = "體重(KG)" })
+    <br />
+    <input type="submit" value="送出" />
+}
+
+@if (Model != null)
+{
+    <section>
+        <div>@Model.UserResult</div>
+    </section>
+}
